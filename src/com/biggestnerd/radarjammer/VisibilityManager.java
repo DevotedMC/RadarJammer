@@ -273,7 +273,7 @@ public class VisibilityManager extends BukkitRunnable implements Listener{
 						recalc.add(next);
 					}
 					try {
-						sleep(0l);
+						sleep(1l);
 					}catch(InterruptedException ie) {}
 				}
 				if(!recalc.isEmpty()) {
@@ -282,6 +282,9 @@ public class VisibilityManager extends BukkitRunnable implements Listener{
 				if (calcRuns > 20) {
 					showAvg();
 				}
+				try {
+					sleep(1l);
+				}catch(InterruptedException ie) {}
 			}
 		}
 
@@ -456,6 +459,9 @@ public class VisibilityManager extends BukkitRunnable implements Listener{
 						}
 					}
 				}
+				try {
+					this.sleep(10l); // Need some kind of sleep here, you're slamming 1 core at 100% otherwise.
+				} catch (InterruptedException ie) {}
 			}
 		}
 		
